@@ -1,13 +1,18 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>inicio</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">inicio</ion-title>
+    <ion-toolbar color="dark">
+      <ion-buttons>
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Início</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+  
+  <ion-content [fullscreen]="true" class="ion-padding">
+    <ion-list>
+      <!-- <ion-item *ngFor="let item of menu" [routerLink]="[item.rota]" detail>
+          <ion-icon slot="start" [md]="item.icone" [color]="item.cor"></ion-icon>
+          <ion-label>{{item.titulo}}</ion-label>
+      </ion-item> -->
+      
+    </ion-list>
+  </ion-content>

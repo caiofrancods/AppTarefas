@@ -1,13 +1,23 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>relatorio</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">relatorio</ion-title>
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+          <ion-back-button defautHref="/inicio"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Relatórios</ion-title>
     </ion-toolbar>
   </ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+    <!-- <ion-item>
+        <ion-label position="stacked">Total de Tarefas</ion-label>
+        <ion-input type="text" formControlName="total" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="stacked">Total de Tarefas para o Mês Atual</ion-label>
+        <ion-input type="text" formControlName="totalMes" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="stacked">Total de Tarefas para a Semana Atual</ion-label>
+        <ion-input type="text" formControlName="totalSemana" readonly></ion-input>
+    </ion-item> -->
 </ion-content>

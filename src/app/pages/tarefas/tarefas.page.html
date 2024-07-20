@@ -1,13 +1,27 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>tarefas</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">tarefas</ion-title>
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+          <ion-back-button defautHref="/inicio"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Tarefas</ion-title>
     </ion-toolbar>
   </ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <!-- <ion-list>
+    <ion-item-sliding *ngFor="let tarefa of tarefas">
+        <ion-item [routerLink]="['/add-tarefa/', tarefa.id]" detail>
+            <ion-label>{{tarefa.descricao}}</ion-label>
+        </ion-item>
+        <ion-item-options side="start">
+            <ion-item-option (click)="excluir(tarefa)" color="danger"> Excluir </ion-item-option>
+        </ion-item-options>
+    </ion-item-sliding>
+  </ion-list> -->
 </ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/add-tarefa" color="primary">
+        <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
