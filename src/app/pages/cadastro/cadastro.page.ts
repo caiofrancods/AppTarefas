@@ -31,16 +31,6 @@ export class CadastroPage implements OnInit {
     }
 
     ngOnInit() {
-        let id = parseFloat(this.activatedRoute.snapshot.params['id']);
-
-        if (!isNaN(id)) {
-            this.userService.buscarPorId(id).then((json) => {
-                this.user = <Usuario>(json);
-                this.formGroup.get('nome')?.setValue(this.user.nome);
-                this.formGroup.get('login')?.setValue(this.user.login);
-                this.formGroup.get('senha')?.setValue(this.user.senha);
-            });
-        }
     }
 
     async salvar() {
@@ -66,6 +56,9 @@ export class CadastroPage implements OnInit {
                         .catch((erro => {
                             this.exibirMensagem('Erro ao salvar o registro! Erro: ' + erro['mensage']);
                         }));
+                }else{
+                    this.exibirMensagem('Login já existente no sistema.');
+                    this.formGroup.get('login')?.setValue("");
                 }
 
             })
