@@ -41,4 +41,9 @@ export class UsuarioService {
         let urlAuxiliar = this.url + "/" + user.login + '/login/exists';
         return await firstValueFrom(this.httpClient.get<boolean>(urlAuxiliar));
     }
+
+    async autenticar(login: String, senha: String){
+        let urlAuxiliar = this.url + "/" + login + "/" + senha + '/authenticate';
+        return await firstValueFrom(this.httpClient.get<boolean>(urlAuxiliar));
+    }
 }
