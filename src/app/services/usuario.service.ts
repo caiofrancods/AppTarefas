@@ -13,8 +13,6 @@ export class UsuarioService {
     }
     url: string = 'https://api-atividade03.odiloncorrea.cloud/usuario';
 
-
-
     constructor(private httpClient: HttpClient) { }
 
     async salvar(user: Usuario): Promise<Usuario> {
@@ -40,7 +38,7 @@ export class UsuarioService {
     }
 
     async verificarLogin(user: Usuario): Promise<boolean> {
-        let urlAuxiliar = this.url + "/" + user.id + "/" + user.login + '/login/exists';
+        let urlAuxiliar = this.url + "/" + user.login + '/login/exists';
         return await firstValueFrom(this.httpClient.get<boolean>(urlAuxiliar));
     }
 }
