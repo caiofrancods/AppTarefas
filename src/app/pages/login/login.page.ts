@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
     selector: 'app-login',
@@ -15,10 +16,10 @@ export class LoginPage implements OnInit {
 
     user: User;
     formGroup: FormGroup;
-    autenticacao: Boolean;
+    autenticacao: Usuario;
 
     constructor(private formBuilder: FormBuilder, private userService: UsuarioService, private toastController: ToastController, private activatedRoute: ActivatedRoute, private navController: NavController) {
-        this.autenticacao = false;
+        this.autenticacao = new Usuario();
         this.user = new User();
         this.formGroup = this.formBuilder.group({
             "login": [this.user.login, Validators.compose([Validators.required])],
@@ -36,9 +37,10 @@ export class LoginPage implements OnInit {
 
         this.userService.autenticar(this.user.login, this.user.senha)
             .then((json) => {
-                this.autenticacao = <Boolean>(json);
+                this.autenticacao = <Usuario>(json);
                 if (this.autenticacao) {
                     this.exibirMensagem('Bem-Vindo!');
+                    this.userService.login(this.autenticacao);
                     this.navController.navigateBack('/inicio');
                 }else{
                     this.exibirMensagem('Login e/ou senha incorreto!');

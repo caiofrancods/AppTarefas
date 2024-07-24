@@ -11,7 +11,7 @@ export class UsuarioService {
     httpHeaders = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }
-    url: string = 'https://api-atividade03.odiloncorrea.cloud/usuario';
+    url: string = 'https://api-atividade03.odiloncorrea.com/usuario';
 
     constructor(private httpClient: HttpClient) { }
 
@@ -44,6 +44,28 @@ export class UsuarioService {
 
     async autenticar(login: String, senha: String){
         let urlAuxiliar = this.url + "/" + login + "/" + senha + '/authenticate';
-        return await firstValueFrom(this.httpClient.get<boolean>(urlAuxiliar));
+        return await firstValueFrom(this.httpClient.get<Usuario>(urlAuxiliar));
+        
     }
+
+    login(user: Usuario){
+        localStorage.setItem('userLogado', JSON.stringify(user));
+    }
+
+    dadosLogados(): Usuario{
+        let userLogado = JSON.parse(localStorage.getItem('userLogado') || '');
+        return userLogado;
+    }
+    sair(){
+        localStorage.setItem('userLogado', JSON.stringify(false));
+    }
+    verificarUsuarioLogado(): Boolean{
+        let userLogado = JSON.parse(localStorage.getItem('userLogado') || '');
+        if(userLogado){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
