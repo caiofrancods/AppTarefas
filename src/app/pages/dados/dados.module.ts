@@ -6,12 +6,15 @@ import { IonicModule } from '@ionic/angular';
 
 import { DadosPageRoutingModule } from './dados-routing.module';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { DadosPage } from './dados.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     DadosPageRoutingModule
   ],

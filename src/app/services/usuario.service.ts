@@ -16,7 +16,7 @@ export class UsuarioService {
     constructor(private httpClient: HttpClient) { }
 
     async salvar(user: Usuario): Promise<Usuario> {
-        if (user.id === 0) {
+        if (user.id == 0) {
             return await firstValueFrom(this.httpClient.post<Usuario>(this.url, JSON.stringify(user), this.httpHeaders));
         } else {
             return await firstValueFrom(this.httpClient.put<Usuario>(this.url, JSON.stringify(user), this.httpHeaders));
@@ -56,6 +56,7 @@ export class UsuarioService {
         let userLogado = JSON.parse(localStorage.getItem('userLogado') || '');
         return userLogado;
     }
+
     sair(){
         localStorage.setItem('userLogado', JSON.stringify(false));
     }
