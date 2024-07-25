@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Tarefas } from '../model/tarefas';
 import { firstValueFrom, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UsuarioService } from './usuario.service';
+import { Usuario } from '../model/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class TarefasService {
 
   private tarefas: Tarefas[] = []; 
+  private user: Usuario;
 
   httpHeaders = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -16,7 +19,9 @@ export class TarefasService {
 
   url: string = 'https://api-atividade03.odiloncorrea.com/tarefa';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private userService: UsuarioService) {
+    this.user =  this.userService.dadosLogados()
+  }
 
   async salvar(tarefas: Tarefas): Promise<Tarefas> {
     if(tarefas.id === 0) {
@@ -27,7 +32,7 @@ export class TarefasService {
   }
 
   async listar(): Promise<Tarefas[]> {
-    const tarefas = await firstValueFrom(this.httpClient.get<Tarefas[]>(this.url));
+    const tarefas = await firstValueFrom(this.httpClient.get<Tarefas[]>(this.url+"/"+this.user.id+"/usuario"));
     this.tarefas = tarefas;  // Armazenar as tarefas na variável this.tarefas
     return tarefas;
   }
