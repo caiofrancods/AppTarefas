@@ -5,6 +5,7 @@ import { ToastController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-tarefas',
@@ -15,11 +16,15 @@ export class TarefasPage implements OnInit {
 
   tarefas: Tarefas[];
 
-  constructor(private toastController: ToastController, private navController: NavController, private alertController: AlertController, private tarefasService: TarefasService, private loadingController: LoadingController) {
+  constructor(private toastController: ToastController, private userService: UsuarioService, private navController: NavController, private alertController: AlertController, private tarefasService: TarefasService, private loadingController: LoadingController) {
     this.tarefas = [];
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (!this.userService.verificarUsuarioLogado()) {
+        this.navController.navigateBack('/login');
+    }
+  }
 
   async ionViewWillEnter() {
     this.carregarLista();

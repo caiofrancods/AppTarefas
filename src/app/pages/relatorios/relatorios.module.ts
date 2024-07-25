@@ -5,12 +5,14 @@ import { IonicModule } from '@ionic/angular';
 
 import { RelatoriosPageRoutingModule } from './relatorios-routing.module';
 import { RelatoriosPage } from './relatorios.page';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     RelatoriosPageRoutingModule
   ],
   declarations: [RelatoriosPage]

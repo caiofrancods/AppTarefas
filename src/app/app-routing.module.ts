@@ -43,6 +43,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/add-tarefas/add-tarefas.module').then( m => m.AddTarefasPageModule)
   },
   {
+    path: 'add-tarefas/:id',
+    loadChildren: () => import('./pages/add-tarefas/add-tarefas.module').then( m => m.AddTarefasPageModule)
+  },
+  {
     path: 'relatorios',
     loadChildren: () => import('./pages/relatorios/relatorios.module').then( m => m.RelatoriosPageModule)
   }

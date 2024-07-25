@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="dark">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/pagina-inicial"></ion-back-button>
+      <ion-back-button defaultHref="/inicio"></ion-back-button>
     </ion-buttons>
     <ion-title>Relatório de Tarefas</ion-title>
   </ion-toolbar>
@@ -12,19 +12,19 @@
     <ion-card-header>
       <ion-card-title>Consulta</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-label>Total de tarefas não concluídas:</ion-label>
-        <ion-badge color="danger">{{ totalNaoConcluidas }}</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Total de tarefas não concluídas no mês atual:</ion-label>
-        <ion-badge color="warning">{{ totalNaoConcluidasMes }}</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Total de tarefas não concluídas na semana atual:</ion-label>
-        <ion-badge color="primary">{{ totalNaoConcluidasSemana }}</ion-badge>
-      </ion-item>
-    </ion-card-content>
+    <form [formGroup]="formGroup">
+        <ion-item>
+            <ion-label position="stacked">Total de tarefas não concluídas:</ion-label>
+            <ion-input type="text" formControlName="total" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Total de tarefas não concluídas no mês atual:</ion-label>
+            <ion-input type="text" formControlName="totalMes" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Total de tarefas não concluídas na semana atual:</ion-label>
+            <ion-input type="text" formControlName="totalSemana" readonly></ion-input>
+        </ion-item>
+      </form>
   </ion-card>
 </ion-content>

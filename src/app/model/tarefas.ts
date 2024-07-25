@@ -4,14 +4,14 @@ export class Tarefas {
     id: number;
     descricao: string;
     data: string;
-    situacao: boolean;
+    situacao: number;
     usuario: Usuario;
 
     constructor(){
         this.id = 0;
         this.descricao = "";
         this.data = "";
-        this.situacao = false;
+        this.situacao = 0;
         this.usuario = new Usuario();
     }
 }
