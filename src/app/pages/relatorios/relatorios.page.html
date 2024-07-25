@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pagina-inicial"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Relatório de Tarefas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Consulta</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Total de tarefas não concluídas:</ion-label>
+        <ion-badge color="danger">{{ totalNaoConcluidas }}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-label>Total de tarefas não concluídas no mês atual:</ion-label>
+        <ion-badge color="warning">{{ totalNaoConcluidasMes }}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-label>Total de tarefas não concluídas na semana atual:</ion-label>
+        <ion-badge color="primary">{{ totalNaoConcluidasSemana }}</ion-badge>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

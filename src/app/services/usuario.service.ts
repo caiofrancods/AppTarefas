@@ -69,4 +69,14 @@ export class UsuarioService {
         }
     }
 
+    recuperarAutenticacao(): Usuario{
+        let usuario = new Usuario();
+        usuario =  JSON.parse(localStorage.getItem('usuarioAutenticado') || "{}");
+        return usuario;
+      }
+    
+      encerrarAutenticacao(){
+        localStorage.removeItem('usuarioAutenticado');
+      }
+
 }

@@ -33,18 +33,21 @@ const routes: Routes = [
     path: 'dados',
     loadChildren: () => import('./pages/dados/dados.module').then(m => m.DadosPageModule)
   },
-  {
-    path: 'relatorio',
-    loadChildren: () => import('./pages/relatorio/relatorio.module').then(m => m.RelatorioPageModule)
-  },
-  {
-    path: 'add-tarefa',
-    loadChildren: () => import('./pages/add-tarefa/add-tarefa.module').then(m => m.AddTarefaPageModule)
-  },
+  
   {
     path: 'sair',
     component: LogoutComponent
+  },
+  {
+    path: 'add-tarefas',
+    loadChildren: () => import('./pages/add-tarefas/add-tarefas.module').then( m => m.AddTarefasPageModule)
+  },
+  {
+    path: 'relatorios',
+    loadChildren: () => import('./pages/relatorios/relatorios.module').then( m => m.RelatoriosPageModule)
   }
+
+
 ];
 
 @NgModule({

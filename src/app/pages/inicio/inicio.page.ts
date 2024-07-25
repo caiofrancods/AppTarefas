@@ -12,7 +12,7 @@ export class InicioPage implements OnInit {
     menu = [
         { titulo: "Tarefas", rota: "/tarefas", icone: "checkbox-outline", cor: "primary" },
         { titulo: "Meus Dados", rota: "/dados", icone: "person-outline", cor: "primary" },
-        { titulo: "Relatório", rota: "/relatorio", icone: "document-text-outline", cor: "primary" },
+        { titulo: "Relatório", rota: "/relatorios", icone: "document-text-outline", cor: "primary" },
         { titulo: "Sair", rota: "/sair", icone: "log-out-outline", cor: "primary" }
     ];
 

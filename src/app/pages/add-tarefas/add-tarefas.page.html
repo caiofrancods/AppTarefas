@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Tarefas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <form [formGroup]="formGroup" (ngSubmit)="salvar()">
+    <ion-item>
+      <ion-label position="stacked">Descrição</ion-label>
+      <ion-input type="text" formControlName="descricao"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Data Limite</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" formControlName="data"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Situação</ion-label>
+      <ion-toggle formControlName="situacao"></ion-toggle>
+    </ion-item>
+    <ion-button type="submit" expand="block" color="danger" [disabled]="!formGroup.valid">Salvar</ion-button>
+  </form>
+
+</ion-content>
