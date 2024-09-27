@@ -8,11 +8,14 @@ import { TarefasPageRoutingModule } from './tarefas-routing.module';
 
 import { TarefasPage } from './tarefas.page';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    HttpClientModule,
     TarefasPageRoutingModule
   ],
   declarations: [TarefasPage]

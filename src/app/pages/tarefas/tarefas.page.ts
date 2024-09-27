@@ -15,7 +15,6 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class TarefasPage implements OnInit {
 
   tarefas: Tarefas[];
-
   constructor(private toastController: ToastController, private userService: UsuarioService, private navController: NavController, private alertController: AlertController, private tarefasService: TarefasService, private loadingController: LoadingController) {
     this.tarefas = [];
   }
